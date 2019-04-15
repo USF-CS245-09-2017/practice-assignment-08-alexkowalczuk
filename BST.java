@@ -49,6 +49,27 @@ public class BST<T> {
 
     }
 
+        public boolean find(Comparable value) {
+        return find(root, value);
+    }
+
+
+
+    private boolean find(BSTNode n, Comparable value){
+        if(n==null) {
+            return false;
+        }
+        if(n.data.compareTo(value) == 0) {
+            return true;
+        }
+        else if(n.data.compareTo(value) > 0) {
+            return find(n.left,value);
+        }
+        else {
+            return find(n.right,value);
+        }
+    }
+
     public void delete(Comparable value) {
         root = delete(root, value);
     }
@@ -97,27 +118,6 @@ public class BST<T> {
         }
         else {
             return removeValue(n.left);
-        }
-    }
-
-    public boolean find(Comparable value) {
-        return find(root, value);
-    }
-
-
-
-    private boolean find(BSTNode n, Comparable value){
-        if(n==null) {
-            return false;
-        }
-        if(n.data.compareTo(value) == 0) {
-            return true;
-        }
-        else if(n.data.compareTo(value) > 0) {
-            return find(n.left,value);
-        }
-        else {
-            return find(n.right,value);
         }
     }
 
